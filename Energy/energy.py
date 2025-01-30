@@ -1,3 +1,6 @@
+"""Any qualities that will apply universally to Energy are to be included in this module."""
+
+
 class Energy:
     """
     Base class to handle the amount of energy
