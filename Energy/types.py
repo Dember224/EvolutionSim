@@ -41,9 +41,8 @@ class Biochemical(Energy):
     ):
         super().__init__(quantity, quality)
         # Quantity is Energy per gram of organism
-        self.loss_rate = loss_rate # grams/second loss to decay after killed
-        self.organism_weight = organism_weight # In grams
-
+        self.loss_rate = loss_rate  # grams/second loss to decay after killed
+        self.organism_weight = organism_weight  # In grams
 
     def get_total_energy(self) -> float:
         """The total amount of energy available in that organism"""
@@ -53,8 +52,10 @@ class Biochemical(Energy):
         """Amount of energy that does work for the organism."""
         return self.quantity * self.quality
 
-    def get_current_energy(self, decay_time_elapsed:int = 0) -> float:
+    def get_current_energy(self, decay_time_elapsed: int = 0) -> float:
         """Amount of energy currently available for consumption"""
-        food_remaining_by_mass = self.organism_weight - (self.loss_rate * decay_time_elapsed)
+        food_remaining_by_mass = self.organism_weight - (
+            self.loss_rate * decay_time_elapsed
+        )
         energy_remaining = food_remaining_by_mass * self.quality
         return energy_remaining
